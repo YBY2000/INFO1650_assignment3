@@ -2,6 +2,21 @@ body {
   font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
 }
 
+header {
+  text-align: center;
+  font-size: x-large;
+}
+
+.tableArea {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.buttonArea {
+  width: max-content;
+  margin: 0 auto;
+}
+
 .socialmediaicons ul {
   margin: 0;
   padding: 0;
