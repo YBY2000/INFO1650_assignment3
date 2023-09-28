@@ -31,6 +31,10 @@ function addRecord() {
 
   // sellect the talbe and create basic information row
   let table = document.getElementById("myTable");
+  if (table == null) {
+    alert("Table not exist!");
+    return;
+  }
   let trNode = document.createElement("tr");
   let tdCheckbox = document.createElement("td");
   let tdStudent = document.createElement("td");
@@ -87,20 +91,17 @@ function selectRecord(checkBox) {
   let selectedRow = checkBox.parentElement.parentElement;
   if (checkBox.checked == true) {
     // the row is now selected
-    selectedNum ++;
+    updateSubmitBTN(++selectedNum);
     selectedRow.style.backgroundColor = "yellow";
     selectedRow.lastElementChild.lastElementChild.style.display = "inline";
     selectedRow.lastElementChild.previousElementSibling.lastElementChild.style.display = "inline";
-    document.getElementById("submitBTN").style.backgroundColor = "orange";
+
   } else {
     // cancel the selection of the row
-    selectedNum --;
+    updateSubmitBTN(--selectedNum);
     selectedRow.style.backgroundColor = "white";
     selectedRow.lastElementChild.lastElementChild.style.display = "none";
     selectedRow.lastElementChild.previousElementSibling.lastElementChild.style.display = "none";
-    if (selectedNum == 0) {
-      document.getElementById("submitBTN").style.backgroundColor = "gray";
-    }
   }
 }
 
@@ -109,9 +110,9 @@ function deleteRecord(rowRef) {
   let curRowName = selectedRow.firstElementChild.nextElementSibling.innerHTML;
   let msg = "You want to delete record of " + curRowName + "?";
   if (confirm(msg)) {
+    updateSubmitBTN(--selectedNum);
     document.getElementById("myTable").deleteRow(selectedRow.rowIndex+1);
     document.getElementById("myTable").deleteRow(selectedRow.rowIndex);
-    document.getElementById("submitBTN").style.backgroundColor = "gray";
     alert(curRowName + " Record deleted successfully")
   }
 }
@@ -120,17 +121,35 @@ function showDetail(clickRef) {
   let detailStatus = clickRef.parentElement.parentElement.nextElementSibling.style.display;
   if (detailStatus == "none") {
     clickRef.parentElement.parentElement.nextElementSibling.style.display = "";
+    clickRef.setAttribute("style", "transform:rotate(180deg);");
   } else {
     clickRef.parentElement.parentElement.nextElementSibling.style.display = "none";
+    clickRef.setAttribute("style", "transform:rotate(0);");
   }
 }
 
 function editRecord(rowRef) {
   let selectedRow = rowRef.parentElement.parentElement;
   let curRowName = selectedRow.firstElementChild.nextElementSibling.innerHTML;
-  let content = prompt("Update the " + curRowName, "content here");
+  let content = prompt("Edit " + curRowName + "details.", "content here");
   if (content != null && content != "") {
-    alert (curRowName + " name updated successfully!")
+    alert (curRowName + " updated successfully!");
+  }
+
+}
+
+
+function submitAwards() {
+  alert("submit successfully");
+}
+
+function updateSubmitBTN(selectedNum) {
+  if (selectedNum == 0) {
+    document.getElementById("submitBTN").style.backgroundColor = "gray";
+    document.getElementById("submitBTN").setAttribute("disabled","");
+  } else {
+    document.getElementById("submitBTN").style.backgroundColor = "orange";
+    document.getElementById("submitBTN").removeAttribute("disabled");
   }
 
 }
