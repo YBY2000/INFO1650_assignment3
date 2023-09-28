@@ -17,9 +17,6 @@
 	color: #fff;
 	background-color: #a7c942;
 }
-#myTable tr td:last-child {
-	/* text-align: center; */
-}
 #myTable td img {
 	width: 25px;
 }
@@ -33,7 +30,6 @@
 #deleteBTN {
 	display: none;
 }
-
-.dropDownTextArea {
-	/* display: none; */
+#editBTN {
+	display: none;
 }

@@ -26,9 +26,10 @@
 			<th>BUDGET<br />#</th>
 			<th>PERCENTAGE</th>
 			<th>DELETE</th>
+			<th>EDIT</th>
 		</tr>
 		<tr>
-			<td><input type="checkbox"  onclick="selectRecord(this)"/><br /><br /><img src="down.png"/></td>
+			<td><input type="checkbox"  onclick="selectRecord(this)"/><br /><br /><img src="down.png" onclick="showDetail(this)"/></td>
 			<td>Student 1</td>
 			<td>Teacher 1</td>
 			<td>Approved</td>
@@ -37,8 +38,9 @@
 			<td>12345</td>
 			<td>100%</td>
 			<td><button id="deleteBTN" onclick="deleteRecord(this)">Delete</button></td>
+			<td><button id="editBTN" onclick="editRecord(this)">Edit</button></td>
 		</tr>
-		<tr class="dropDownTextArea"><td colspan="8">
+		<tr style="display: none;"><td colspan="8">
 			Advisor:<br /><br />
 			Award Details<br />
 			Summer 1-2014(TA)<br />
@@ -48,7 +50,7 @@
 			Award Status:<br /><br /><br />
 		</td></tr>
 		<tr>
-			<td><input type="checkbox" onclick="selectRecord(this)" /><br /><br /><img src="down.png" width="25px" /></td>
+			<td><input type="checkbox" onclick="selectRecord(this)" /><br /><br /><img src="down.png"  onclick="showDetail(this)"/></td>
 			<td>Student 2</td>
 			<td>Teacher 2</td>
 			<td>Approved</td>
@@ -57,8 +59,9 @@
 			<td>23456</td>
 			<td>100%</td>
 			<td><button id="deleteBTN" onclick="deleteRecord(this)">Delete</button></td>
+			<td><button id="editBTN" onclick="editRecord(this)">Edit</button></td>
 		</tr>
-		<tr class="dropDownTextArea"><td colspan="8">
+		<tr style="display: none;"><td colspan="8">
 			Advisor:<br /><br />
 			Award Details<br />
 			Summer 1-2014(TA)<br />
@@ -68,7 +71,7 @@
 			Award Status:<br /><br /><br />
 		</td></tr>
 		<tr>
-			<td><input type="checkbox"  onclick="selectRecord(this)"/><br /><br /><img src="down.png" width="25px" /></td>
+			<td><input type="checkbox"  onclick="selectRecord(this)"/><br /><br /><img src="down.png"  onclick="showDetail(this)"/></td>
 			<td>Student 3</td>
 			<td>Teacher 3</td>
 			<td>Approved</td>
@@ -77,8 +80,9 @@
 			<td>34567</td>
 			<td>100%</td>
 			<td><button id="deleteBTN" onclick="deleteRecord(this)">Delete</button></td>
+			<td><button id="editBTN" onclick="editRecord(this)">Edit</button></td>
 		</tr>
-		<tr class="dropDownTextArea"><td colspan="8">
+		<tr style="display: none;"><td colspan="8">
 			Advisor:<br /><br />
 			Award Details<br />
 			Summer 1-2014(TA)<br />
